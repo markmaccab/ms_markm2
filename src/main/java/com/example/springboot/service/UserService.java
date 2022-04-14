@@ -2,6 +2,8 @@ package com.example.springboot.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -36,8 +38,11 @@ public class UserService {
     }
 
 	public Userpre getUserpreById(Integer id) {
-		Userpre userpre = repositoryPre.getById(id);
-		return userpre;		
+		Optional<Userpre> userpre = repositoryPre.findById(id);
+		if(userpre.isPresent()) {
+			return userpre.get();
+		}
+		return null;
 	}
 
 	public Integer saveUser(Userpre userpre) {
