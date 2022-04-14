@@ -29,7 +29,7 @@ public class UserController {
 	}
 
 	
-	@GetMapping("user/{id}") //		@PathVariable("id")
+	@GetMapping("/user/{id}") //		@PathVariable("id")
 	public Userpre getUserpreById(@PathVariable String id)	{
 		return service.getUserpreById(Integer.parseInt(id));
 	}
